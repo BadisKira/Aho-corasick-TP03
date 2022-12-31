@@ -7,15 +7,15 @@ void texte_genere(int longeur_text, int taille_alph);
 int main(int argc, char const *argv[])
 {
     if (argc != 3)
-        usage("nombre de param�tres incorrect : longeur_texte taille_alphabet");
+        usage("nombre de parametres incorrect : longeur_texte taille_alphabet");
     else
     {
         if (atoi(argv[1]) <= 0)
-            usage("  La longeur de texte doit �tre > 0");
+            usage("  La longeur de texte doit etre > 0");
         else if (atoi(argv[2]) <= 0)
-            usage("  La taille de l'alphabet doit �tre > 0");
+            usage("  La taille de l'alphabet doit etre > 0");
         else if (atoi(argv[2]) > LENGTH_ALPHABET)
-            usage("La taille de l'alphabet doit �tre < taille de l'alphabet");
+            usage("La taille de l'alphabet doit etre < taille de l'alphabet");
     }
 
     // la longeur de texte
