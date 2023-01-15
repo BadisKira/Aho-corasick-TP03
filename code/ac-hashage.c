@@ -328,8 +328,7 @@ void free_AhoCorasick(AhoCorasick acorasik)
 int main(int argc, char *argv[])
 {
 
-    printf("\nje suis le fichier du texte %s\n", argv[2]);
-    printf("je suis le ficheir des mots %s\n", argv[1]);
+
 
     if (argc != 3)
         printf("nombre de paramètres incorrect :  mots.txt texte.txt");
@@ -347,7 +346,7 @@ int main(int argc, char *argv[])
     recuperer_mots(tab_mots, donnees_mots);
 
     // notre texte
-    unsigned char texte[TAILLE_MAX_TEXTE];
+    unsigned char texte[TAILLE_MAX_TEXTE] ="";
     recuperer_texte(texte);
 
 

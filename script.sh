@@ -1,8 +1,8 @@
-# make
-# ./genere-texte 50000 3 > texte3.txt
-# ./genere-mots 10 5 25 3 > mots3.txt
+make
+./genere-texte 50000 3 > texte.txt
+./genere-mots 10 5 25 3 > mots.txt
 # ./ac-matrice mots3.txt texte3.txt > res-ac-matrice
-# ./ac-hachage mots3.txt texte3.txt > res-ac-hachage
+./ac-hachage mots3.txt texte3.txt > res-ac-hachage
 # diff res-ac-matrice res-ac-hachage
 
 
@@ -23,6 +23,6 @@
 
 
 
-echo " je vais eecuter aho - corasick"
-gcc ./code/ac-hashage.c -o ach
-./ach mots.txt texte.txt
+# echo " je vais eecuter aho - corasick"
+# gcc ./code/ac-hashage.c -o ach
+# ./ach mots.txt texte.txt
