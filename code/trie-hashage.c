@@ -3,7 +3,7 @@
 #include <limits.h>
 #include <string.h>
 #include <assert.h>
-
+#include "lireMots&Text.c"
 #include "trie-hashage.h"
 
 static const unsigned char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#{([-|_^@)]=}+*.;!é$è<>";
@@ -12,6 +12,8 @@ static const unsigned char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLM
 
 Trie createTrie(int maxNode)
 {
+
+    printf("create trie my friend");
     Trie trie;
     trie = malloc(sizeof(struct _trie));
     trie->maxNode = maxNode + 1;
@@ -30,7 +32,7 @@ int isInTrie(Trie trie, unsigned char *w)
 {
     int etat = 0, find = 1, fin = -1, i = 0;
 
-    while ((etat < trie->maxNode) && (i < strlen((const char *)w)))
+    while ((etat < trie->maxNode) && (i < (int)strlen((const char *)w)))
     {
         char c = w[i];
         // chercher le mot dans la table d'hachage
@@ -84,7 +86,7 @@ void insertInTrie(Trie trie, unsigned char *w)
     // si le mot n'existe pas
     if (!isInTrie(trie, w))
     { // verification si le mot complet existe ou non.
-        while ((etat < trie->maxNode) && (i < strlen((const char *)w)))
+        while ((etat < trie->maxNode) && (i < (int)strlen((const char *)w)))
         {
             char c = w[i];
 
@@ -197,41 +199,47 @@ void freeTrie(Trie trie)
     free(trie);
 }
 
-/*
-int main(int argc, char *argv[])
-{
-    // la table de nos mots
-    unsigned char *tab_mots[NBR_MAX_MOTS];
-    //la table pour r�cuperer le nombre des mots et max node.
-    int * donnees_mots = malloc(2 * sizeof(int));
-    nos_mots(tab_mots, donnees_mots);
+// int main(int argc, char *argv[])
+// {
+//     Trie trie;
 
-    //notre texte
-    unsigned char texte[TAILLE_MAX_TEXTE] = "";
-    notre_texte(texte);
+//     // la table de nos mots
+//     unsigned char *tab_mots[15];
+//     // la table pour r�cuperer le nombre des mots et max node.
+//     int *donnees_mots = malloc(2 * sizeof(int));
+//     int nbr_max_node = recuperer_mots(tab_mots, donnees_mots);
 
-    Trie trie;
-    // on cr�e le trie avec le nombre max des node
-    trie = createTrie(donnees_mots[0]);
+//     for (int i = 0; i < 10; i++)
+//     {
+//         printf("tab_mots[%d] = %s\n", i, tab_mots[i]);
+//     }
+
+//     // on crée le trie avec le nombre max des node
+//     trie = createTrie(nbr_max_node); // donnees_mots[0]
 
 
 
-    //inserer tous les dans le trie
-    for(int i = 0; i < donnees_mots[1]; i++){
-        insertInTrie(trie, tab_mots[i]);
-    }
+//     printf("before insertion into the trie");
+//     // inserer tous les dans le trie
+//     for (int i = 0; i < NBR_MAX_MOTS; i++) // donnes_mots[1]
+//     {
+//         insertInTrie(trie, tab_mots[i]);
+//     }
 
-    //liberer l'espace du trie.
-    freeTrie(trie);
-    //liberer l'espace m�moire de la table des mots
-    for (int i = 0; i < donnees_mots[1]; i++)
-    {
-        free(tab_mots[i]);
-    }
 
-    //liberer l'espace m�moire de la table donne_mots
-        free(donnees_mots);
 
-    return EXIT_SUCCESS;
-}
-*/
+
+
+//     // liberer l'espace du trie.
+//     freeTrie(trie);
+//     // liberer l'espace m�moire de la table des mots
+//     for (int i = 0; i < NBR_MAX_MOTS; i++)
+//     {
+//         free(tab_mots[i]);
+//     }
+
+//     // liberer l'espace m�moire de la table donne_mots
+//     free(donnees_mots);
+
+//     return EXIT_SUCCESS;
+// }

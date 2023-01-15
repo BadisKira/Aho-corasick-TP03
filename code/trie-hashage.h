@@ -9,7 +9,6 @@ struct _list
         targetNode;       /* cible de la transition */
     unsigned char letter; /* etiquette de la transition */
     struct _list *next;   /* maillon suivant */
-    a
 };
 
 typedef struct _list *List;
